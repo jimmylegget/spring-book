@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    mode: HTML
+    encoding: utf-8
+
+  datasource:
+    driver-class-name: 
+      # com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/book?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create # or update 
+      show-sql: true
+
+logging:
+  level:
+    root: info  
+    com.springbook: debug  
+  file: log/my.log
+
+book:
+  name: 互联网
+  author: li
+  isbn: ${random.uuid}
+  description: ${book.name} 好
+  
+
+# create table
+#  info级别才输出  
+# 多个yml  spring: profile active dev 
+# app-dev.yml 
+# dependency jpa web tomcat 
